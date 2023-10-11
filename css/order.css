@@ -4,6 +4,14 @@
   }
 
 
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
 body {
     margin: 0;
     padding: 0;
@@ -15,6 +23,73 @@ h1, h2, h3, h4, h5, p {
     color: rgb(228, 226, 227);
 }
 
+
+/* nav bar */
+
+nav{
+    position: sticky;
+    top: 0;
+    height: 120px;
+    background: rgb(34, 10, 56);
+    box-shadow: 0px 0px 15px #000;
+}
+
+nav img {
+    width: 100px;
+    position: absolute;
+    top: 5px;
+    left: 5%;
+}
+
+nav ul {
+    float: right;
+    margin-right: 25px;
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 120px;
+    margin: 0 25px;
+}
+
+nav ul li a {
+    position: relative;
+    color: white;
+    padding: 5px 0;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+nav ul li a::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    transition: .3s;
+}
+
+nav ul li a:hover::before {
+    bottom: -5px;
+}
+
+label #btn,
+label #cancel {
+    color: white;
+    font-size: 30px;
+    float: right;
+    line-height: 150px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    display: none;
+}
 
 /* Text Head */
 
@@ -61,6 +136,11 @@ h1, h2, h3, h4, h5, p {
     border: solid 5px blueviolet;
     border-radius: 15px;
     transition: all .3s;
+}
+
+#contry:hover {
+    border-top-left-radius: 70px;
+    border-bottom-right-radius: 70px;
 }
 
 #contry h2 {
@@ -130,7 +210,6 @@ h1, h2, h3, h4, h5, p {
 
     padding: 2rem;
     padding-top: 5px;
-    position: relative;
     transition: all .2s;
 }
 
@@ -149,7 +228,6 @@ h1, h2, h3, h4, h5, p {
 
 #info h1, h2, h3, h4, h5, p{
     margin: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 #info h4 {
     padding-bottom: 5px;
@@ -157,14 +235,21 @@ h1, h2, h3, h4, h5, p {
 }
 
 #price a {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-decoration: none;
     padding: 10px;
+    border-radius: 5px;
     padding-left: 4.5rem;
     padding-right: 4.5rem;
     background-image: linear-gradient(60deg, rgb(87, 0, 128), rgb(132, 0, 255));
     color: white;
     font-weight: bold;
+    transition: all .3s ease;
+}
+
+#price a:hover {
+    border-top-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+    transition: all .3s ease;
 }
 
 #price {
@@ -211,4 +296,57 @@ footer {
   font-size: 22px;
   background-color: rgba(255, 255, 255, 0.671);
   transition: all .2s;
+}
+
+/* Screen manager */
+
+@media (max-width: 1118px) {
+    nav img {
+        left: 8%;
+
+    }
+}
+@media (max-width: 944px) {
+    nav img {
+        left: 6%;
+        top: 20px;
+        width: 90px;
+    }
+    nav ul li a {
+        font-size: 17px;
+
+    }
+}
+@media (max-width: 860px) {
+    label #btn {
+        display: block;
+    }
+    ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: rgb(40, 12, 66);
+        top: 120px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a {
+        font-size: 20px;
+        
+    }
+    #check:checked ~ ul {
+        left: 0;
+    }
+    #check:checked ~ label #btn {
+        display: none;
+    }
+    #check:checked ~ label #cancel {
+        display: block;
+    }
 }
